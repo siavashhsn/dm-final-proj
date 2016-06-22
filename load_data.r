@@ -23,10 +23,10 @@ isize 		<- function(a) iprintf("[%i, %i]\n", nrow(a), ncol(a))
 library(foreign)
 
 cat("> Loading dataset\n")
-if(!(file.exists("data/German credit fraud dataset/trainset.arff") && 
-	 file.exists("data/German credit fraud dataset/testset.arff"))) {
+if(!(file.exists("trainset.arff") && 
+	 file.exists("testset.arff"))) {
 
-	dataset 	<- read.arff('data/German credit fraud dataset/credit_fruad.arff')
+	dataset 	<- read.arff('credit_fruad.arff')
 
 	cat("> Shuffling dataset\n")
 	for(iter in 1:100) 
@@ -37,11 +37,11 @@ if(!(file.exists("data/German credit fraud dataset/trainset.arff") &&
 	trainset 	<- splits$trainset
 	testset 	<- splits$testset
 
-	write.arff(trainset, "data/German credit fraud dataset/trainset.arff")
-	write.arff(testset, "data/German credit fraud dataset/testset.arff")
+	write.arff(trainset, "trainset.arff")
+	write.arff(testset, "testset.arff")
 } else {
 	cat("> Reading from cache sets!\n")
-	trainset 	<- read.arff('data/German credit fraud dataset/trainset.arff')
-	testset 	<- read.arff('data/German credit fraud dataset/testset.arff')
+	trainset 	<- read.arff('trainset.arff')
+	testset 	<- read.arff('testset.arff')
 	dataset 	<- rbind(trainset, testset)
 }
