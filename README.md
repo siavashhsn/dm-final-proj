@@ -2,6 +2,8 @@
 
 Run "exec.r" to bootstrap the project.
 
+please read raveshe_hal.pdf & natayej.pdf & mogadameh.pdf
+
 az dashtane library e (caret) dar R etminan hasel farmayid 
 dar sorate nadashtane an be (caret.pdf) morajee shavad
 
